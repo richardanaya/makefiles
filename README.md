@@ -6,9 +6,9 @@ If you aren't experienced in `make` I recommend starting here: http://swcarpentr
 
 The basic idea is you import in makefiles modules to help save time and get operational quickly. Each makefile module may have variables that will change its behavior.
 
-Here's a basic hello world:
+## Hello World
 
-```bash
+```console
 richard:~$ git clone https://github.com/richardanaya/makefiles.git .vendor/make
 richard:~$ vim Makefile
 ```
