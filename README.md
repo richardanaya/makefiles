@@ -14,14 +14,14 @@ richard:~$ vim Makefile
 ```
 
 ```makefile
-PROJECT_NAME = hello-world
+PROJECT_NAME        = hello-world
 PROJECT_DESCRIPTION = A simple project that says hello world
 
 include .vendor/make/help.mk
 
-.PHONY: hello
+.PHONY : hello
 ##hello - Say hello
-hello:
+hello  :
 	@echo Hello World!
 ```
 
