@@ -1,4 +1,4 @@
-#Makefiles
+# Makefiles
 
 This project is a tome of useful makefiles to help get many different types of projects started quickly with the power of `make`.
 
@@ -13,7 +13,7 @@ git clone https://github.com/richardanaya/makefiles.git .vendor/make
 vim Makefile
 ```
 
-*/Makefile*
+Makefile
 ```makefile
 PROJECT_NAME = hello-world
 PROJECT_DESCRIPTION = A simple project that says hello world
@@ -26,13 +26,13 @@ hello:
 	@echo Hello World!
 ```
 
-```bash
-$ make
+```console
+richard:~$ make
 hello-world
 A simple project that says hello world
 
 help - Show commands for this makefile
 hello - Say hello
-\$ make hello
+richard:~$ make hello
 Hello World!
 ```
