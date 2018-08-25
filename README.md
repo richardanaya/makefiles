@@ -4,7 +4,7 @@ This project is a tome of useful makefiles to help get many different types of p
 
 If you aren't experienced in `make` I recommend starting here: http://swcarpentry.github.io/make-novice/
 
-The basic idea is you import in makefiles modules to help save time and get operational quickly. Each makefile module may have variables that will change its behavior.
+The basic idea is you import in makefiles modules to help save time and get operational quickly. Each makefile module will have variables that will change its behavior and can be overridden before importing.
 
 ## Hello World
 
