@@ -9,11 +9,10 @@ The basic idea is you import in makefiles modules to help save time and get oper
 Here's a basic hello world:
 
 ```bash
-git clone https://github.com/richardanaya/makefiles.git .vendor/make
-vim Makefile
+richard:~$ git clone https://github.com/richardanaya/makefiles.git .vendor/make
+richard:~$ vim Makefile
 ```
 
-Makefile
 ```makefile
 PROJECT_NAME = hello-world
 PROJECT_DESCRIPTION = A simple project that says hello world
