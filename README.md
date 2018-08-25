@@ -10,9 +10,10 @@ Here's a basic hello world:
 
 ```bash
 git clone https://github.com/richardanaya/makefiles.git .vendor/make
+vim Makefile
 ```
 
-`Makefile`
+*/Makefile*
 ```makefile
 PROJECT_NAME = hello-world
 PROJECT_DESCRIPTION = A simple project that says hello world
@@ -25,16 +26,13 @@ hello:
 	@echo Hello World!
 ```
 
-`make`
-```
+```bash
+$ make
 hello-world
 A simple project that says hello world
 
 help - Show commands for this makefile
 hello - Say hello
-```
-
-`make hello`
-```
+\$ make hello
 Hello World!
 ```
