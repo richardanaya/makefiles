@@ -32,6 +32,7 @@ A simple project that says hello world
 
 help - Show commands for this makefile
 hello - Say hello
+
 richard:~$ make hello
 Hello World!
 ```
