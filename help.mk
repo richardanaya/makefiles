@@ -1,8 +1,10 @@
 PROJECT_NAME        ?= 
 PROJECT_DESCRIPTION ?= 
 
-.PHONY : help
+# Make help the default target
 .DEFAULT_GOAL=help
+
+.PHONY : help
 help   : Makefile
 	@# Only print out project name if its non-empty.
 	@test "$(PROJECT_NAME)" && printf "%s\n" "$(PROJECT_NAME)" || true
