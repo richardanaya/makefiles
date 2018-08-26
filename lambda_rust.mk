@@ -15,9 +15,13 @@ lambda_rust__build_pre:
 lambda_rust__build: lambda_rust__build_pre $(LAMBDA_RUST__LAMBDAS)
 	
 $(LAMBDA_RUST__OUTPUT_DIR)%: $(LAMBDA_RUST__RUST_FILES) $(LAMBDA_RUST__RUST_LOCKS) $(LAMBDA_RUST__RUST_TOML)
-	@cd $(LAMBDA_RUST__LAMBDAS_BASE)$* && cargo build --release
+	@cd $(LAMBDA_RUST__LAMBDAS_BASE)$* && $(CARGO) build --release
 	@mkdir -p $(LAMBDA_RUST__OUTPUT_DIR)
 	@cp $(LAMBDA_RUST__LAMBDAS_BASE)$*/target/release/$* $(LAMBDA_RUST__OUTPUT_DIR)$*
 
 lambda_rust__clean:
 	@rm -rf $(LAMBDA_RUST__OUTPUT_DIR)
+	
+lambda_rust__setup/%:
+	mkdir -p $(LAMBDA_RUST__LAMBDAS_BASE)
+	cd $(LAMBDA_RUST__LAMBDAS_BASE) && $(CARGO) new $*

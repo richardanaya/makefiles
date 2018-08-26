@@ -33,3 +33,7 @@ $(TERRAFORM__TARGET_FILES):
 terraform__clean :
 	@rm -rf $(TERRAFORM__OUTPUT_DIR)
 	
+terraform__setup :
+	mkdir -p $(TERRAFORM__SRC)
+	touch $(TERRAFORM__SRC)/main.tf
+	

@@ -13,9 +13,12 @@ app_rust__build_pre:
 app_rust__build: app_rust__build_pre $(APP_RUST__OUTPUT)
 	
 $(APP_RUST__OUTPUT): $(APP_RUST__RUST_FILES) $(APP_RUST__RUST_LOCK) $(APP_RUST__RUST_TOML)
-	@cd $(APP_RUST__DIR)$* && cargo build --release
+	@cd $(APP_RUST__DIR)$* && $(CARGO) build --release
 	mkdir -p $(APP_RUST__OUTPUT_DIR)
 	cp $(APP_RUST__DIR)/target/release/$(PROJECT_NAME) $(APP_RUST__OUTPUT)
 
 app_rust__clean:
 	@rm -rf $(APP_RUST__OUTPUT)
+	
+app_rust__setup:
+	cd $(PROJECT_SOURCES_DIR) && $(CARGO) new $(PROJECT_NAME)
