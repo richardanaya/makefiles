@@ -42,9 +42,9 @@ Hello World!
 ## Quickstart
 
 ```
-curl https://raw.githubusercontent.com/richardanaya/makefiles/master/make_project.sh | sh -s app app_rust
+curl -L https://rawgit.com/richardanaya/makefiles/master/make_project.sh | sh -s app app_rust
 ```
 
 ```
-curl https://raw.githubusercontent.com/richardanaya/makefiles/master/make_project.sh | sh -s app lambda_rust terraform
+curl -L https://rawgit.com/richardanaya/makefiles/master/make_project.s | sh -s lambda_app lambda_rust terraform
 ```
