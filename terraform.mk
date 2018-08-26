@@ -26,7 +26,7 @@ terraform__build_log:
 	
 terraform__build : terraform__build_log $(TERRAFORM__TARGET_FILES)
 	
-$(TERRAFORM__TARGET_FILES):
+$(TERRAFORM__OUTPUT_DIR)%.tf: $(TERRAFORM__SRC)%.tf
 	@mkdir -p $(dir $@)
 	@cp $(patsubst $(TERRAFORM__OUTPUT_DIR)%, $(TERRAFORM__SRC)%, $@) $@
 	
