@@ -37,6 +37,7 @@ vendor:\n\
 " > Makefile
 
 printf "\
+dist/
 .vendor/
 /target/\
 **/*.rs.bk\
