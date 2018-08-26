@@ -17,9 +17,11 @@ richard:~$ vim Makefile
 PROJECT_NAME        = hello-world
 PROJECT_DESCRIPTION = A simple project that says hello world
 
+include .vendor/make/prelude.mk
 include .vendor/make/help.mk
 
 .PHONY : hello
+
 ##hello - Say hello
 hello  :
 	@echo Hello World!
@@ -35,26 +37,4 @@ hello - Say hello
 
 richard:~$ make hello
 Hello World!
-```
-
-## Vendoring
-
-Rather than typing the commands every time to vendor we can create a simple makefile named `Vendor`
-
-```makefile
-vendor: .vendor/make;
-
-.vendor/make: 
-	@git clone https://github.com/richardanaya/makefiles.git .vendor/make
-
-clean:
-	@rm -rf .vendor
-```
-
-```console
-# To download vendored makefiles
-richard:~make -f Vendor
-
-# To clean out vendor
-richard:~make -f Vendor clean
 ```
