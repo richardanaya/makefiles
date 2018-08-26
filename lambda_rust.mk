@@ -1,0 +1,3 @@
+lambda_rust__build:
+
+lambda_rust__clean:
