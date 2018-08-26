@@ -9,7 +9,7 @@ LAMBDA_RUST__RUST_FILES   = $(shell find $(LAMBDA_RUST__RUST_ROOTS) -type f -reg
 LAMBDA_RUST__RUST_LOCKS   = $(addprefix $(LAMBDA_RUST__LAMBDAS_BASE), $(LAMBDA_RUST__LAMBDAS_DIRS))/Cargo.lock
 
 lambda_rust__build_pre:
-	echo building rust
+	@$(call log, "lambda_rust", "Building")
 
 lambda_rust__build: lambda_rust__build_pre $(LAMBDA_RUST__LAMBDAS)
 	
