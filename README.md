@@ -36,3 +36,25 @@ hello - Say hello
 richard:~$ make hello
 Hello World!
 ```
+
+## Vendoring
+
+Rather than typing the commands every time to vendor we can create a simple makefile named `Vendor`
+
+```makefile
+vendor: .vendor/make;
+
+.vendor/make: 
+	@git clone https://github.com/richardanaya/makefiles.git .vendor/make
+
+clean:
+	@rm -rf .vendor
+```
+
+```console
+# To download vendored makefiles
+richard:~make -f Vendor
+
+# To clean out vendor
+richard:~make -f Vendor clean
+```
