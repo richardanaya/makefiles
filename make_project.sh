@@ -35,5 +35,11 @@ vendor:\n\
 	@rm -rf .vendor\n\
 	@\$(GIT) clone https://github.com/richardanaya/makefiles.git .vendor/make\n\
 " > Makefile
+
+printf "\
+.vendor/
+/target/\
+**/*.rs.bk\
+" > .gitignore
 make vendor
 make `echo $MAKE_MODULES | tr " " "\n" | xargs -n1 -I % printf "%__setup "`
