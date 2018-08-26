@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-test "$@" || (echo "Usage: make_project.sh <project name> <make module> <make module...>" && exit 1)
+test "$1" || (echo "Usage: make_project.sh <project name> <make module> <make module...>" && exit 1)
 PROJECT_NAME=$1
 shift
 MAKE_MODULES=$@
