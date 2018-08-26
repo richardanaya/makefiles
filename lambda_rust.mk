@@ -15,7 +15,6 @@ lambda_rust__build_pre:
 lambda_rust__build: lambda_rust__build_pre $(LAMBDA_RUST__LAMBDAS)
 	
 $(LAMBDA_RUST__OUTPUT_DIR)%: $(LAMBDA_RUST__RUST_FILES) $(LAMBDA_RUST__RUST_LOCKS) $(LAMBDA_RUST__RUST_TOML)
-	echo $(LAMBDA_RUST__RUST_FILES)
 	@cd $(LAMBDA_RUST__LAMBDAS_BASE)$* && cargo build --release
 	@mkdir -p $(LAMBDA_RUST__OUTPUT_DIR)
 	@cp $(LAMBDA_RUST__LAMBDAS_BASE)$*/target/release/$* $(LAMBDA_RUST__OUTPUT_DIR)$*
