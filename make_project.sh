@@ -21,13 +21,13 @@ include .vendor/make/help.mk\n\
 `echo $MAKE_MODULES | tr " " "\n" | xargs -n1 -I % printf "include .vendor/make/%.mk\n"`\n\
 endif\n\
 \n\
-.PHONY : all check deploy clean vendor\n\
+.PHONY : all check deploy clean \n\
 \n\
 ##all    - Build everything\n\
-all:\n\
+all: `echo $MAKE_MODULES | tr " " "\n" | xargs -n1 -I % printf "%__build "`\n\
 \n\
 ##clean  - Clean up project\n\
-clean:\n\
+clean: `echo $MAKE_MODULES | tr " " "\n" | xargs -n1 -I % printf "%__clean "`\n\
 \n\
 ##vendor - Vendor makefiles\n\
 vendor:\n\

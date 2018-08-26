@@ -21,7 +21,9 @@ $(LAMBDA_RUST__OUTPUT_DIR)%: $(LAMBDA_RUST__RUST_FILES) $(LAMBDA_RUST__RUST_LOCK
 
 lambda_rust__clean:
 	@rm -rf $(LAMBDA_RUST__OUTPUT_DIR)
-	
-lambda_rust__setup/%:
+
+lambda_rust__setup:
 	mkdir -p $(LAMBDA_RUST__LAMBDAS_BASE)
+	
+lambda_rust__setup/%: lambda_rust__setup
 	cd $(LAMBDA_RUST__LAMBDAS_BASE) && $(CARGO) new $*
