@@ -21,4 +21,5 @@ app_rust__clean:
 	@rm -rf $(APP_RUST__OUTPUT)
 	
 app_rust__setup:
+	mkdir -p $(PROJECT_SOURCES_DIR)
 	cd $(PROJECT_SOURCES_DIR) && $(CARGO) new $(PROJECT_NAME)

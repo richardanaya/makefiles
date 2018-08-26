@@ -8,7 +8,7 @@ cd $PROJECT_NAME
 git init
 printf "\
 # Project level variables\n\
-PROJECT_NAME         = $1\n\
+PROJECT_NAME         = $PROJECT_NAME\n\
 PROJECT_DESCRIPTION  = \n\
 \n\
 # Tools\n\
