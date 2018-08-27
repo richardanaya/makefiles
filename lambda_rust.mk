@@ -9,16 +9,17 @@ LAMBDA_RUST__RUST_FILES   = $(shell test -e $(LAMBDA_RUST__RUST_ROOTS) && find $
 LAMBDA_RUST__RUST_LOCKS   = $(addprefix $(LAMBDA_RUST__LAMBDAS_BASE), $(LAMBDA_RUST__LAMBDAS_DIRS))/Cargo.lock
 LAMBDA_RUST__RUST_TOML   = $(addprefix $(LAMBDA_RUST__LAMBDAS_BASE), $(LAMBDA_RUST__LAMBDAS_DIRS))/Cargo.toml
 LAMBDA_RUST__ALL_FILES   = $(LAMBDA_RUST__RUST_FILES) $(LAMBDA_RUST__RUST_LOCKS) $(LAMBDA_RUST__RUST_TOML)
+LAMBDA_RUST__LAMBDA_ZIPS = $(addsuffix .zip, $(LAMBDA_RUST__LAMBDAS))
 
 lambda_rust__build_pre:
 	@$(call log, "lambda_rust", "Building")
 
-lambda_rust__build: lambda_rust__build_pre $(LAMBDA_RUST__LAMBDAS)
-	
-$(LAMBDA_RUST__OUTPUT_DIR)%: $(LAMBDA_RUST__ALL_FILES)
+lambda_rust__build: lambda_rust__build_pre $(LAMBDA_RUST__LAMBDA_ZIPS)
+
+$(LAMBDA_RUST__OUTPUT_DIR)%.zip: $(LAMBDA_RUST__ALL_FILES)
 	@cd $(LAMBDA_RUST__LAMBDAS_BASE)$* && $(CARGO) build --release
 	@mkdir -p $(LAMBDA_RUST__OUTPUT_DIR)
-	@cp $(LAMBDA_RUST__LAMBDAS_BASE)$*/target/release/$* $(LAMBDA_RUST__OUTPUT_DIR)$*
+	@zip -9 -j $(LAMBDA_RUST__OUTPUT_DIR)$*.zip $(LAMBDA_RUST__LAMBDAS_BASE)$*/target/release/$*
 
 $(LAMBDA_RUST__ALL_FILES):;
 
@@ -27,6 +28,6 @@ lambda_rust__clean:
 
 lambda_rust__setup:
 	mkdir -p $(LAMBDA_RUST__LAMBDAS_BASE)
-	
+
 lambda_rust__setup/%: lambda_rust__setup
 	cd $(LAMBDA_RUST__LAMBDAS_BASE) && $(CARGO) new $*
