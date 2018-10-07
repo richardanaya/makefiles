@@ -30,4 +30,6 @@ lambda_rust__setup:
 	mkdir -p $(LAMBDA_RUST__LAMBDAS_BASE)
 
 lambda_rust__setup/%: lambda_rust__setup
-	cd $(LAMBDA_RUST__LAMBDAS_BASE) && $(CARGO) new $*
+	@cd $(LAMBDA_RUST__LAMBDAS_BASE) && $(CARGO) new $*
+	@cp .vendor/make/lambda_rust_template.rs $(LAMBDA_RUST__LAMBDAS_BASE)/$*/src/main.rs
+	@echo "aws_lambda = { git = \"https://github.com/srijs/rust-aws-lambda\" }" >> $(LAMBDA_RUST__LAMBDAS_BASE)/$*/Cargo.toml
